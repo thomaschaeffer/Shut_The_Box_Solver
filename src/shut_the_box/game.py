@@ -1,3 +1,9 @@
+import random
+
+class NoPossibleMoveError(Exception):
+    pass
+
+
 def remove_numbers(remaining,choice):
     new_remaining = remaining.copy()
     for number in choice:
@@ -33,7 +39,45 @@ def possible_moves(remaining,target,current_choice = None):
 
     return left_result + right_result
 
+def roll_dice():
+    d1 = random.randint(1,6)
+    d2=random.randint(1,6)
+    return d1+d2
 
-remaining={1,2,3,4,5,6,7,8,9,10,11,12}
+def play_turn(remaining):
 
-print(possible_moves({1,2,3,4,7},7))
+    flag_choice=True
+    result = roll_dice()
+    l = possible_moves(remaining,result)
+
+    if len(l)==0:
+        raise NoPossibleMoveError("No possible move")
+
+    for i in range(len(l)):
+        print(f"Choice {i} : {l[i]}\n")
+
+    while(flag_choice):
+        choice = int(input("Enter your choice\n"))
+        if choice<0 or choice>=len(l):
+            print("Invalide choice\n")
+        else:
+            flag_choice=False
+
+    return remove_numbers(remaining,l[choice])
+
+def play_game():
+
+    remaining={1,2,3,4,5,6,7,8,9,10,11,12}
+
+    while not is_win(remaining):
+        try:
+            remaining = play_turn(remaining)  
+        except NoPossibleMoveError:
+            print("\n You lose, there is no combination possible \n") 
+            return 
+        
+    print("\n You won !! \n")    
+    return 
+
+
+play_game()
