@@ -1,4 +1,4 @@
-from game import remove_numbers, is_win, play_turn, NoPossibleMoveError, dice_probability, possible_moves
+from game import remove_numbers, is_win, dice_probability, possible_moves
 import time
 memo = {}
 
