@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import time
-from solver import win_probability_unoptimized,win_probability_optimized, memo
+from shut_the_box.solver import win_probability_unoptimized,win_probability_optimized, memo
 
 UNOPTIMIZED_RANGE = 8
 

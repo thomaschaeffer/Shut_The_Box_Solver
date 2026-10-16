@@ -49,6 +49,7 @@ def play_turn(remaining):
     flag_choice=True
     result = roll_dice()
     l = possible_moves(remaining,result)
+    print(f"You roll: {result} and remaining value are : {remaining} \n")
 
     if len(l)==0:
         raise NoPossibleMoveError("No possible move")
@@ -80,9 +81,7 @@ def play_game():
     return 
 
 
-def dice_probability(value):
-    dic_proba={2:1,3:2,4:3,5:4,6:5,7:6,8:5,9:4,10:3,11:2,12:1}
-    return dic_proba[value]/36
+
 
 if __name__ == "__main__":
-    print(dice_probability(2)+dice_probability(3)+dice_probability(4)+dice_probability(5)+dice_probability(6)+1/2 * dice_probability(7))
+    play_game()

@@ -1,0 +1,11 @@
+pyproject.toml
+src/shut_the_box/__init__.py
+src/shut_the_box/game.py
+src/shut_the_box/plot.py
+src/shut_the_box/solver.py
+src/shut_the_box_solver.egg-info/PKG-INFO
+src/shut_the_box_solver.egg-info/SOURCES.txt
+src/shut_the_box_solver.egg-info/dependency_links.txt
+src/shut_the_box_solver.egg-info/requires.txt
+src/shut_the_box_solver.egg-info/top_level.txt
+tests/test_game.py

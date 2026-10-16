@@ -1,6 +1,10 @@
-from game import remove_numbers, is_win, dice_probability, possible_moves
-import time
+from shut_the_box.game import remove_numbers, is_win, possible_moves
+
 memo = {}
+
+def dice_probability(value):
+    dic_proba={2:1,3:2,4:3,5:4,6:5,7:6,8:5,9:4,10:3,11:2,12:1}
+    return dic_proba[value]/36
 
 def win_probability_unoptimized(remaining):
 
@@ -69,14 +73,5 @@ def best_choice(remaining,dice_value):
         return "No move"
     return best_move
 
-if __name__=="__main__":
-    t1=time.time()
-    win_probability_unoptimized({1,2,3,4,5,6,7,8,9,10})
-    t2=time.time()
-    print("time of execution for the unoptimized version :",t2-t1)
-
-
-    t1=time.time()
-    print(win_probability_optimized({1,2,3,4,5,6,7,8,9,10,11,12}))
-    t2=time.time()
-    print("time of execution for the optimized version :",t2-t1)
+if __name__ == "__main__":
+    print(f" The propabilityto win is : {win_probability_optimized({1,2,3,4,5,6,7,8,9,10,11,12}) *100}%")
